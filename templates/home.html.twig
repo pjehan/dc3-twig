@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+{{ parent() }}
+<link rel="stylesheet" href="css/home.css">
+{% endblock %}
+
+{% block title %}Accueil{% endblock %} {# permet de modifier le block par défaut créer dans base #} 
+
+{% block content %}
+    <h1>Bonjour {{ name }}</h1>
+    
+    <table>
+        
+        
+        <thead>
+            
+            <tr>
+                
+                <th>Date</th>
+                <th>Artiste</th>
+            
+            </tr>
+        </thead>
+        <tbody>
+            
+            {% for concert in concerts %}
+                
+                <tr>
+                    
+                    <td>{{ concert.fields["1ere_date"]|date("d M Y") }}</td>
+                    <td>{{ concert.fields.artistes }}</td>
+            
+                </tr>
+                
+            {% endfor %}
+        
+        </tbody>
+
+
+    </table>
+    
+{% endblock %}
